@@ -1,0 +1,210 @@
+{
+  "newbie": {
+    "vocabulary": [
+      {
+        "id": "v1",
+        "type": "vocabulary",
+        "question": "What is this object?",
+        "image": "https://placehold.co/200x200/FFB3C6/fff?text=🍎",
+        "imageAlt": "A red apple",
+        "options": ["Apple", "Banana", "Orange", "Grape"],
+        "answer": "Apple",
+        "points": 10
+      },
+      {
+        "id": "v2",
+        "type": "vocabulary",
+        "question": "What is this object?",
+        "image": "https://placehold.co/200x200/B3D9FF/fff?text=📚",
+        "imageAlt": "A stack of books",
+        "options": ["Notebook", "Book", "Magazine", "Dictionary"],
+        "answer": "Book",
+        "points": 10
+      },
+      {
+        "id": "v3",
+        "type": "vocabulary",
+        "question": "What is this activity?",
+        "image": "https://placehold.co/200x200/C8F5C8/fff?text=🏃",
+        "imageAlt": "Person running",
+        "options": ["Swimming", "Jumping", "Running", "Walking"],
+        "answer": "Running",
+        "points": 10
+      },
+      {
+        "id": "v4",
+        "type": "vocabulary",
+        "question": "What is this object?",
+        "image": "https://placehold.co/200x200/FFD9B3/fff?text=🌸",
+        "imageAlt": "A pink flower",
+        "options": ["Tree", "Leaf", "Flower", "Grass"],
+        "answer": "Flower",
+        "points": 10
+      },
+      {
+        "id": "v5",
+        "type": "vocabulary",
+        "question": "What is this activity?",
+        "image": "https://placehold.co/200x200/E8D5FF/fff?text=🎵",
+        "imageAlt": "Person singing",
+        "options": ["Dancing", "Singing", "Playing", "Listening"],
+        "answer": "Singing",
+        "points": 10
+      }
+    ],
+    "grammar": [
+      {
+        "id": "g1",
+        "type": "grammar",
+        "instruction": "Arrange the words to make a correct sentence!",
+        "words": ["She", "reads", "a", "book"],
+        "answer": ["She", "reads", "a", "book"],
+        "hint": "Subject + Verb + Object",
+        "points": 15
+      },
+      {
+        "id": "g2",
+        "type": "grammar",
+        "instruction": "Arrange the words to make a correct sentence!",
+        "words": ["They", "play", "soccer"],
+        "answer": ["They", "play", "soccer"],
+        "hint": "Subject + Verb + Object",
+        "points": 15
+      },
+      {
+        "id": "g3",
+        "type": "grammar",
+        "instruction": "Arrange the words to make a correct sentence!",
+        "words": ["I", "love", "you"],
+        "answer": ["I", "love", "you"],
+        "hint": "Subject + Verb + Object",
+        "points": 15
+      },
+      {
+        "id": "g4",
+        "type": "grammar",
+        "instruction": "Arrange the words to make a correct sentence!",
+        "words": ["We", "eat", "together"],
+        "answer": ["We", "eat", "together"],
+        "hint": "Subject + Verb + Adverb",
+        "points": 15
+      },
+      {
+        "id": "g5",
+        "type": "grammar",
+        "instruction": "Arrange the words to make a correct sentence!",
+        "words": ["He", "runs", "fast"],
+        "answer": ["He", "runs", "fast"],
+        "hint": "Subject + Verb + Adverb",
+        "points": 15
+      }
+    ]
+  },
+  "explorer": {
+    "listening": [
+      {
+        "id": "l1",
+        "type": "listening",
+        "title": "Shape of You - Ed Sheeran",
+        "youtubeId": "JGwWNGJdvx8",
+        "startTime": 43,
+        "endTime": 50,
+        "instruction": "Listen carefully, then fill in the missing words!",
+        "lyric": "I'm in love with the shape of ___",
+        "blanks": [
+          { "position": 8, "answer": "you" }
+        ],
+        "hint": "It's a pronoun — who is he singing to? 💕",
+        "points": 20
+      },
+      {
+        "id": "l2",
+        "type": "listening",
+        "title": "Perfect - Ed Sheeran",
+        "youtubeId": "2Vv-BfVoq4g",
+        "startTime": 55,
+        "endTime": 62,
+        "instruction": "Listen carefully, then fill in the missing words!",
+        "lyric": "I found a ___ in you",
+        "blanks": [
+          { "position": 3, "answer": "love" }
+        ],
+        "hint": "A deep feeling between two people 💖",
+        "points": 20
+      },
+      {
+        "id": "l3",
+        "type": "listening",
+        "title": "Thinking Out Loud - Ed Sheeran",
+        "youtubeId": "lp-EO5I60KA",
+        "startTime": 10,
+        "endTime": 18,
+        "instruction": "Listen carefully, then fill in the missing words!",
+        "lyric": "Take me into your loving ___",
+        "blanks": [
+          { "position": 5, "answer": "arms" }
+        ],
+        "hint": "Part of your body you use for hugging 🤗",
+        "points": 20
+      }
+    ],
+    "grammar": [
+      {
+        "id": "eg1",
+        "type": "grammar_explorer",
+        "title": "Grammar Fix!",
+        "youtubeId": "JGwWNGJdvx8",
+        "startTime": 100,
+        "endTime": 107,
+        "instruction": "Which sentence has the CORRECT grammar?",
+        "wrongSentence": "I are in love with your smile.",
+        "options": [
+          "I are in love with your smile.",
+          "I is in love with your smile.",
+          "I am in love with your smile.",
+          "I was in love with your smile always."
+        ],
+        "answer": "I am in love with your smile.",
+        "explanation": "With 'I', we always use 'am' — not 'are' or 'is'. ✅",
+        "points": 20
+      },
+      {
+        "id": "eg2",
+        "type": "grammar_explorer",
+        "title": "Tense Transformer!",
+        "youtubeId": "2Vv-BfVoq4g",
+        "startTime": 200,
+        "endTime": 207,
+        "instruction": "Change the sentence to PAST TENSE:",
+        "sentence": "She sings beautifully every night.",
+        "options": [
+          "She singing beautifully every night.",
+          "She singed beautifully every night.",
+          "She sang beautifully every night.",
+          "She has sung beautifully every night."
+        ],
+        "answer": "She sang beautifully every night.",
+        "explanation": "The past tense of 'sing' is 'sang' (irregular verb). 🎵",
+        "points": 20
+      },
+      {
+        "id": "eg3",
+        "type": "grammar_explorer",
+        "title": "Director's Cut!",
+        "youtubeId": "lp-EO5I60KA",
+        "startTime": 150,
+        "endTime": 157,
+        "instruction": "Choose the sentence with CORRECT subject-verb agreement:",
+        "options": [
+          "The girls loves to dance together.",
+          "The girls love to dance together.",
+          "The girls is loving to dance together.",
+          "The girls were loves to dance together."
+        ],
+        "answer": "The girls love to dance together.",
+        "explanation": "Plural subject 'girls' uses 'love', not 'loves'. 💃",
+        "points": 20
+      }
+    ]
+  }
+}

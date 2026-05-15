@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PopLingo 💖 — Choose Your Level</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .menu-wrapper {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 32px 20px 48px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ── Header ── */
+    .menu-header {
+      width: 100%;
+      max-width: 680px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 48px;
+    }
+    .menu-header-text { text-align: center; flex: 1; }
+    .menu-header-text h1 {
+      font-family: 'Fredoka', sans-serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 4px;
+    }
+    .menu-header-text p {
+      font-family: 'Quicksand', sans-serif;
+      font-size: 1rem;
+      color: var(--text-light);
+      font-weight: 500;
+    }
+
+    /* ── Level Cards ── */
+    .cards-container {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      width: 100%;
+      max-width: 560px;
+    }
+
+    .level-card {
+      position: relative;
+      background: var(--white);
+      border-radius: var(--radius-xl);
+      padding: 32px 28px;
+      box-shadow: var(--shadow-soft);
+      border: 3px solid var(--pink-mid);
+      cursor: pointer;
+      text-decoration: none;
+      display: block;
+      overflow: hidden;
+      transition: all 0.3s cubic-bezier(.4,0,.2,1);
+      animation: slideUp 0.5s ease both;
+    }
+    .level-card:nth-child(1) { animation-delay: 0.1s; }
+    .level-card:nth-child(2) { animation-delay: 0.25s; }
+
+    .level-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .level-card.newbie::before { background: linear-gradient(135deg, rgba(251,207,232,0.5), rgba(253,242,248,0.5)); }
+    .level-card.explorer::before { background: linear-gradient(135deg, rgba(254,215,170,0.4), rgba(252,211,77,0.2)); }
+
+    .level-card:hover { transform: translateY(-6px); box-shadow: 0 20px 48px rgba(244,114,182,0.22); border-color: var(--pink-deep); }
+    .level-card:hover::before { opacity: 1; }
+    .level-card.newbie:hover { border-color: var(--pink-deep); }
+    .level-card.explorer:hover { border-color: #F59E0B; }
+
+    .card-body { position: relative; z-index: 1; }
+
+    .card-icon {
+      width: 72px;
+      height: 72px;
+      border-radius: var(--radius-lg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      margin-bottom: 18px;
+    }
+    .newbie .card-icon  { background: linear-gradient(135deg, #FCE7F3, #FBCFE8); }
+    .explorer .card-icon{ background: linear-gradient(135deg, #FEF3C7, #FDE68A); }
+
+    .card-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-family: 'Fredoka', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 4px 12px;
+      border-radius: 99px;
+      margin-bottom: 10px;
+      letter-spacing: 0.5px;
+    }
+    .newbie .card-tag   { background: #FCE7F3; color: var(--pink-deep); }
+    .explorer .card-tag { background: #FEF3C7; color: #D97706; }
+
+    .card-title {
+      font-family: 'Fredoka', sans-serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 8px;
+    }
+
+    .card-sub {
+      font-family: 'Quicksand', sans-serif;
+      font-size: 0.95rem;
+      color: var(--text-light);
+      font-weight: 500;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    /* Feature list */
+    .card-features { display: flex; flex-direction: column; gap: 8px; margin-bottom: 24px; }
+    .feature-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Quicksand', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-mid);
+    }
+    .feature-dot {
+      width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0;
+    }
+    .newbie .feature-dot  { background: var(--pink-deep); }
+    .explorer .feature-dot{ background: #F59E0B; }
+
+    /* Start button inside card */
+    .card-cta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .cta-label {
+      font-family: 'Fredoka', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+    .newbie  .cta-label { color: var(--pink-deep); }
+    .explorer .cta-label { color: #D97706; }
+    .cta-arrow {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem;
+      transition: transform 0.2s;
+    }
+    .newbie  .cta-arrow { background: var(--pink-pastel); }
+    .explorer .cta-arrow { background: #FEF3C7; }
+    .level-card:hover .cta-arrow { transform: translateX(4px); }
+
+    /* Deco blobs */
+    .card-deco {
+      position: absolute;
+      right: -20px; top: -20px;
+      font-size: 7rem;
+      opacity: 0.08;
+      pointer-events: none;
+      line-height: 1;
+    }
+
+    /* Footer tip */
+    .footer-tip {
+      margin-top: 36px;
+      background: var(--white);
+      border: 2px solid var(--pink-mid);
+      border-radius: var(--radius-lg);
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      max-width: 560px;
+      width: 100%;
+    }
+    .tip-icon { font-size: 1.5rem; }
+    .tip-text {
+      font-family: 'Quicksand', sans-serif;
+      font-size: 0.9rem;
+      color: var(--text-mid);
+      font-weight: 500;
+      line-height: 1.5;
+    }
+    .tip-text strong { color: var(--text-dark); }
+  </style>
+</head>
+<body>
+
+  <div class="hearts-bg" id="heartsBg"></div>
+
+  <div class="menu-wrapper">
+
+    <!-- Header -->
+    <div class="menu-header">
+      <a href="index.html" class="nav-back" style="margin-right:auto">← Back</a>
+      <div class="menu-header-text">
+        <h1>💖 Choose Your Level</h1>
+        <p>Mulai dari mana hati kamu terasa nyaman!</p>
+      </div>
+      <!-- Spacer -->
+      <div style="width:80px"></div>
+    </div>
+
+    <!-- Level Cards -->
+    <div class="cards-container">
+
+      <!-- Newbie Card -->
+      <a href="belajar-newbie.html" class="level-card newbie">
+        <span class="card-deco">🌸</span>
+        <div class="card-body">
+          <div class="card-icon">🌸</div>
+          <div class="card-tag">⭐ Level 1 · NEWBIE</div>
+          <div class="card-title">Warm-Up Hearts</div>
+          <div class="card-sub">
+            Mulai perjalananmu dengan kosakata dasar & penyusunan kalimat.
+            Cocok banget untuk pemula!
+          </div>
+          <div class="card-features">
+            <div class="feature-item"><span class="feature-dot"></span>🖼️ Object Matcher — tebak arti dari gambar</div>
+            <div class="feature-item"><span class="feature-dot"></span>🧩 Action Puzzle — susun kalimat dengan drag & drop</div>
+            <div class="feature-item"><span class="feature-dot"></span>💖 3 lives · Tanpa audio/video</div>
+          </div>
+          <div class="card-cta">
+            <span class="cta-label">Start Warm-Up →</span>
+            <div class="cta-arrow">💕</div>
+          </div>
+        </div>
+      </a>
+
+      <!-- Explorer Card -->
+      <a href="belajar-explorer.html" class="level-card explorer">
+        <span class="card-deco">🎵</span>
+        <div class="card-body">
+          <div class="card-icon">🎵</div>
+          <div class="card-tag">🌟 Level 2 · EXPLORER</div>
+          <div class="card-title">Melody & Scene Hearts</div>
+          <div class="card-sub">
+            Belajar dari potongan lagu pop & dialog film favorit.
+            Latih pendengaranmu dan kuasai grammar dengan cara seru!
+          </div>
+          <div class="card-features">
+            <div class="feature-item"><span class="feature-dot"></span>🎧 Tune-In Dictation — fill in the blank lirik lagu</div>
+            <div class="feature-item"><span class="feature-dot"></span>🎬 Director's Cut — perbaiki grammar dari lirik/dialog</div>
+            <div class="feature-item"><span class="feature-dot"></span>💖 5 lives · YouTube embed</div>
+          </div>
+          <div class="card-cta">
+            <span class="cta-label">Start Exploring →</span>
+            <div class="cta-arrow">🌟</div>
+          </div>
+        </div>
+      </a>
+
+    </div>
+
+    <!-- Tip -->
+    <div class="footer-tip">
+      <div class="tip-icon">💡</div>
+      <div class="tip-text">
+        <strong>Pro tip:</strong> Mulai dari Level Newbie dulu ya, biar hatimu siap sebelum explore lebih jauh! Semangat belajar! 💕
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    const bg = document.getElementById('heartsBg');
+    const symbols = ['💖', '💕', '💗', '🌸', '✨', '💞'];
+    for (let i = 0; i < 14; i++) {
+      const span = document.createElement('span');
+      span.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+      span.style.left = Math.random() * 100 + 'vw';
+      span.style.animationDuration = (10 + Math.random() * 12) + 's';
+      span.style.animationDelay = (Math.random() * 10) + 's';
+      bg.appendChild(span);
+    }
+  </script>
+</body>
+</html>

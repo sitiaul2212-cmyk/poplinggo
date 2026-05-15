@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PopLingo 💖 — Connect with English, Heart to Heart</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ── Landing-specific styles ── */
+    .landing-wrapper {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 32px 20px;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .logo-landing {
+      margin-bottom: 40px;
+      animation: slideDown 0.7s cubic-bezier(.4,0,.2,1);
+    }
+    @keyframes slideDown {
+      from { opacity: 0; transform: translateY(-30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .logo-big-icon {
+      width: 100px;
+      height: 100px;
+      background: linear-gradient(135deg, #F43F5E, #F472B6, #FB7185);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3.5rem;
+      box-shadow: 0 12px 40px rgba(244,63,94,0.4), 0 0 0 12px rgba(244,63,94,0.1);
+      margin: 0 auto 20px;
+      animation: heartbeat 2s ease-in-out infinite;
+    }
+
+    .brand-name {
+      font-family: 'Fredoka', sans-serif;
+      font-size: 3.5rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #F43F5E, #F472B6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      letter-spacing: 2px;
+      margin-bottom: 6px;
+    }
+
+    .tagline {
+      font-family: 'Quicksand', sans-serif;
+      font-size: 1.1rem;
+      color: var(--text-light);
+      font-weight: 500;
+      letter-spacing: 0.5px;
+    }
+
+    /* Hero section */
+    .hero-section {
+      max-width: 560px;
+      animation: fadeIn 1s ease 0.3s both;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--white);
+      border: 2px solid var(--pink-mid);
+      border-radius: 99px;
+      padding: 6px 18px;
+      font-family: 'Fredoka', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text-mid);
+      margin-bottom: 24px;
+    }
+
+    .hero-title {
+      font-family: 'Fredoka', sans-serif;
+      font-size: 2.6rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      line-height: 1.25;
+      margin-bottom: 18px;
+    }
+    .hero-title span {
+      background: linear-gradient(135deg, var(--red-heart), var(--pink-deep));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-desc {
+      font-family: 'Quicksand', sans-serif;
+      font-size: 1.05rem;
+      color: var(--text-light);
+      line-height: 1.7;
+      margin-bottom: 36px;
+      font-weight: 500;
+    }
+
+    /* Feature Pills */
+    .feature-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      margin-bottom: 40px;
+    }
+    .pill {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--white);
+      border: 2px solid var(--pink-mid);
+      border-radius: 99px;
+      padding: 8px 16px;
+      font-family: 'Fredoka', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text-mid);
+      box-shadow: var(--shadow-card);
+      transition: all 0.2s;
+    }
+    .pill:hover { border-color: var(--pink-deep); transform: translateY(-2px); }
+
+    /* CTA Button */
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(135deg, #F43F5E, #F472B6);
+      color: var(--white);
+      font-family: 'Fredoka', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 600;
+      padding: 18px 44px;
+      border: none;
+      border-radius: 99px;
+      cursor: pointer;
+      text-decoration: none;
+      box-shadow: 0 10px 32px rgba(244,63,94,0.38);
+      transition: all 0.3s cubic-bezier(.4,0,.2,1);
+      letter-spacing: 0.5px;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-btn::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, #FB7185, #F472B6);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .cta-btn:hover {
+      transform: translateY(-4px) scale(1.03);
+      box-shadow: 0 16px 48px rgba(244,63,94,0.48);
+    }
+    .cta-btn:hover::before { opacity: 1; }
+    .cta-btn span { position: relative; z-index: 1; }
+
+    /* Footer note */
+    .footer-note {
+      margin-top: 36px;
+      font-family: 'Quicksand', sans-serif;
+      font-size: 0.85rem;
+      color: var(--text-light);
+      font-weight: 500;
+    }
+    .footer-note strong {
+      color: var(--pink-deep);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Floating hearts background -->
+  <div class="hearts-bg" id="heartsBg"></div>
+
+  <div class="landing-wrapper">
+
+    <!-- Logo -->
+    <div class="logo-landing">
+      <div class="logo-big-icon">💖</div>
+      <div class="brand-name">PopLingo</div>
+      <div class="tagline">Your Heartful English Journey</div>
+    </div>
+
+    <!-- Hero -->
+    <div class="hero-section">
+      <div class="hero-badge">✨ Level up your English with music & fun</div>
+
+      <h1 class="hero-title">
+        Connect with English,<br>
+        <span>Heart to Heart</span> 💕
+      </h1>
+
+      <p class="hero-desc">
+        Belajar bahasa Inggris lewat lagu pop, video seru, dan kuis interaktif.
+        Kumpulkan Heart Points dan jaga nyawa kamu, ya! 🎵
+      </p>
+
+      <!-- Feature pills -->
+      <div class="feature-pills">
+        <div class="pill">💖 Sistem Nyawa</div>
+        <div class="pill">🎵 Musik & Video</div>
+        <div class="pill">🧩 Drag & Drop</div>
+        <div class="pill">⭐ Heart Points</div>
+        <div class="pill">🎓 2 Level</div>
+      </div>
+
+      <!-- CTA -->
+      <a href="menu.html" class="cta-btn">
+        <span>Start My Journey 💖</span>
+      </a>
+
+      <p class="footer-note">
+        Dibuat dengan penuh cinta ♥ oleh <strong>PopLingo</strong>
+      </p>
+    </div>
+
+  </div>
+
+  <script>
+    // Generate floating hearts background
+    const bg = document.getElementById('heartsBg');
+    const symbols = ['💖', '💕', '💗', '💓', '♡', '💞', '💝'];
+    for (let i = 0; i < 18; i++) {
+      const span = document.createElement('span');
+      span.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+      span.style.left = Math.random() * 100 + 'vw';
+      span.style.animationDuration = (8 + Math.random() * 14) + 's';
+      span.style.animationDelay = (Math.random() * 12) + 's';
+      span.style.fontSize = (1 + Math.random() * 1.5) + 'rem';
+      bg.appendChild(span);
+    }
+  </script>
+</body>
+</html>
